@@ -1,0 +1,51 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mp
+#second
+data_train = pd.read_csv("D:/JIR/File/Python3.7.7/titanic/Train.csv")
+mp.rc('font', family='FangSong', weight='bold', size='11')
+#舱等级与存活的关系
+Survived_0 = data_train.Pclass[data_train.Survived == 0].value_counts()
+Survived_1 = data_train.Pclass[data_train.Survived == 1].value_counts()
+df=pd.DataFrame({'存活':Survived_1, '未存活':Survived_0})
+df.plot(kind = 'bar')
+plt.title('各舱等级乘客的存活情况')
+plt.xlabel("舱等级")
+plt.ylabel('人数')
+plt.show()
+#性别与存活的关系
+Survived_0 = data_train.Sex[data_train.Survived == 0].value_counts()
+Survived_1 = data_train.Sex[data_train.Survived == 1].value_counts()
+df=pd.DataFrame({'存活':Survived_1, '未存活':Survived_0})
+df.plot(kind='bar')
+plt.title("各性别乘客的存活情况")
+plt.xlabel("性别") 
+plt.ylabel("人数")
+plt.show()
+#登船港口与存活的关系
+Survived_0 = data_train.Embarked[data_train.Survived == 0].value_counts()
+Survived_1 = data_train.Embarked[data_train.Survived == 1].value_counts()
+df=pd.DataFrame({'存活':Survived_1, '未存活':Survived_0})
+df.plot(kind='bar')
+plt.title("各登录港口乘客的存活情况")
+plt.xlabel("登录港口") 
+plt.ylabel("人数") 
+plt.show()
+#父母子女登船与存活的关系
+Survived_0 = data_train.Parch[data_train.Survived == 0].value_counts()
+Survived_1 = data_train.Parch[data_train.Survived == 1].value_counts()
+df=pd.DataFrame({'存活':Survived_1, '未存活':Survived_0})
+df.plot(kind='bar')
+plt.title("父母子女是否登船的存活情况")
+plt.xlabel("父母子女登船人数") 
+plt.ylabel("人数") 
+plt.show()
+#兄弟姐妹登船与存活的关系
+Survived_0 = data_train.SibSp[data_train.Survived == 0].value_counts()
+Survived_1 = data_train.SibSp[data_train.Survived == 1].value_counts()
+df=pd.DataFrame({'存活':Survived_1, '未存活':Survived_0})
+df.plot(kind='bar')
+plt.title("兄弟姐妹是否登船的存活情况")
+plt.xlabel("兄弟姐妹登船人数") 
+plt.ylabel("人数") 
+plt.show()
